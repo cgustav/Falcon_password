@@ -1,0 +1,280 @@
+/*Estilo general*/
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+body{
+    background:#131336;
+    color: #fff;
+}
+
+*::selection{
+    background: #33257E;
+    color:#fff;
+}
+*::-moz-selection{
+    background: #33257E;
+    color:#fff;
+}
+
+a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.conten{
+    max-width: 500px;
+    width: 90%;
+    margin: 40px auto;
+    /* what i though is right
+    margin-top: 30px;
+    margin-left: 280px;
+    padding: 2rem;
+    border: 2px transparent #cccccc
+    */
+}
+
+/*LOGOTIPO*/
+.logo{
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+.logo img{
+    width: 40%;
+    vertical-align: center;
+}
+
+/* ROWS N COLUMNS*/
+/*Into 'app' class instead generic style*/
+.app .row{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.app .col{
+    width: 50%;
+}
+
+/*INPUTS N BUTTONS*/
+/*letting back to the generic style*/
+
+.app .btn{
+    width: 100%;
+    background: #5332a1;
+    color:#fff;
+    display:inline-block;
+    height: 40px;
+    vertical-align: top;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+    /* what i though:
+    text-decoration: none;
+    padding:5px;
+    font-weight: 600px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #5332a1;
+    border-radius: 6px;
+    border: 2px solid #04046d;
+    */
+}
+
+.app .btn:hover{
+    background: #B4A5FF;
+}
+.app .btn.false{
+    background: #33257E;
+}
+
+.app label {
+line-height: 40px;
+}
+
+.app input {
+text-align: center;
+border: none;
+}
+
+/*ROW: NUMBER OF CHARACTERS*/
+
+.app .character-number .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.app .character-number .buttons div{
+width: 100%;
+}
+
+.app .character-number .buttons div:nth-child(1) button{
+    border-radius: 4px 0 0 4px;
+}
+.app .character-number .buttons div:nth-child(3) button{
+    border-radius: 0 4px 4px 0;
+}
+.app .character-number input{
+    height: 40px;
+    width: 100%;
+    cursor: default;
+    background: #33257E;
+    color: #fff;
+}
+
+/*ROW: GENERATE PASSWORD*/
+
+.app .row.generate{
+margin-bottom: 10px;
+}
+
+.app .row.generate .col:nth-child(1){
+width: 30%;
+}
+
+.app .row.generate .col:nth-child(2){
+width: 65%;
+}
+
+.app .row.generate .btn.btn-generate{
+width: 100%;
+height: 40px;
+font-size: 18px;
+padding: 0;
+line-height: 40px;
+position: relative;
+z-index: 1;
+}
+
+.app .row.generate .btn.btn-generate i{
+margin-left: 20px;
+position: relative;
+top: -1px;
+font-size: 14px;
+}
+
+.app .row.generate .btn.btn-generate::after{
+content: "";
+display: inline-block;
+background: #5332a1;
+width: 14px;
+height: 14px;
+position: absolute;
+top: 13px;
+right: -7px;
+transform: rotate(45deg);
+z-index: 9;
+transition: all .3s ease;
+
+}
+
+.app .row.generate .col:nth-child(1):hover .btn-generate:after{
+background: #B4A5FF;
+}
+
+.app .row.generate .input-password{
+    width: 100%;
+    background: none;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,.25);
+    color:#fff;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+ 
+.app .row.generate .input-password:hover{
+    border: 1px solid rgba(255,255,255,.5);
+}
+
+.app .row.generate input::selection{
+    background: #212139;
+}
+
+.app .row.generate input::-moz-selection{
+    background: #212139;
+}
+
+/*ROW: ALERT!*/
+
+.app .row.alert{
+    justify-content: flex-end;
+}
+
+.app .row.alert .col{
+width: 65%;
+}
+
+.app .row.alert .alert-copied{
+text-align: center;
+color: rgba(255,255,255,0);
+transition: all .3s ease;
+}
+
+.app .row.alert .alert-copied.active{
+    color: rgba(255,255,255,1);
+}
+
+.app .row.alert .alert-copied p, .app .row.alert .alert-copied i{
+    font-size: 12px;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 500px){
+    .logo img {
+        width: 70%;
+    }
+
+    .app .row {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .app .row .col{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .app .row.generate{
+        border-top: 1px solid rgba(255,255,255,.25);
+        padding-top: 40px;
+    }
+    .app .row.generate .col:nth-child(1),
+    .app .row.generate .col:nth-child(2){
+        width: 100%;
+    }
+    .app .row.generate .btn.btn-generate:after {
+        top: auto;
+        left: 50%;
+        right: 50%;
+        bottom: -7px;
+    }
+
+}
+
+/*FOOTER*/
+
+.footer{
+    text-align: center;
+}
+
+.footer a, p{
+font-size: 14px;
+color: rgb(133, 133, 133);
+}
