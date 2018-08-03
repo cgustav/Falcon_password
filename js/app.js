@@ -1,4 +1,4 @@
-(function() {
+(function(){
     /* Generic Var n Objects */
 
     /*form variable container */
@@ -30,12 +30,12 @@
     /*Events! */
 
     /* This prevents the application to do a submit to send any data and refresh the web page*/
-    app.addEventListener('submit',function(e){
+    app.addEventListener('submit', function (e) {
         e.preventDefault();
     });
 
     /*Number of characters increment button function */
-    app.elements.namedItem('btn-plus-one').addEventListener('click',function(){
+    app.elements.namedItem('btn-plus-one').addEventListener('click', function () {
         configuration.character++;
         inputCharacters.value = configuration.character;
 
@@ -45,24 +45,24 @@
 
     /*Number of characters decrement button function*/
     app.elements.namedItem('btn-minus-one').addEventListener('click', function () {
-        if(configuration.character > 1){
-        configuration.character--;
-        inputCharacters.value = configuration.character;
+        if (configuration.character > 1) {
+            configuration.character--;
+            inputCharacters.value = configuration.character;
 
-        /*Console log output 
-        console.log('Number of characters decreased to: ' + configuration.character); */
-        
-        }else{
+            /*Console log output 
+            console.log('Number of characters decreased to: ' + configuration.character); */
+
+        } else {
             alert('Must be greater than 1');
-        /*Console log output 
-        console.log('ERROR: It can't be decreased by 1:'); */
-        }    
+            /*Console log output 
+            console.log('ERROR: It can't be decreased by 1:'); */
+        }
     });
 
     //To switch true/false include symbol option 
-    app.elements.namedItem('btn-symbol').addEventListener(click,function() {
+    app.elements.namedItem('btn-symbol').addEventListener(click, function () {
         //This activate the function that change button and icon itself
-            btnToggle(this);
+        btnToggle(this);
 
         //Switching between true and false values:
         configuration.symbol = !configuration.symbols;
@@ -81,7 +81,7 @@
     });
 
     //To switch true/false include capital letters  option 
-    app.elements.namedItem('btn-capital-letter').addEventListener(click, function () { 
+    app.elements.namedItem('btn-capital-letter').addEventListener(click, function () {
         btnToggle(this);
         configuration.capLetter = !configuration.capLetters;
         //console log output
@@ -90,13 +90,13 @@
 
 
     //To generate a password event
-    app.elements.namedItem('btn-generate').addEventListener(click,function () {
+    app.elements.namedItem('btn-generate').addEventListener(click, function () {
         //Calls generate password function
         generatePassword();
     });
 
     //To copy to clipboard password event
-    app.elements.namedItem('input-password').addEventListener(click,function(){
+    app.elements.namedItem('input-password').addEventListener(click, function () {
         copyPassword();
     });
 
@@ -105,7 +105,7 @@
     //Dedicated Functions
 
     //To alternate icon button styles
-    function btnToggle(elementx){
+    function btnToggle(elementx) {
         elementx.classList.toggle('false');
         elementx.childNodes[0].classList.toggle('fa-check');
         elementx.childNodes[0].classList.toggle('fa-times');
@@ -113,15 +113,15 @@
 
     //To generate a password
 
-    function generatePassword(){
+    function generatePassword() {
         //final charset input container
         var finalCharacters = '';
         //generated password container
         var password = '';
 
         //setting an specific configuration for this password gen instance
-        for(property in configuration){
-            if(configuration[property] == true){
+        for (property in configuration) {
+            if (configuration[property] == true) {
                 //console log to identify property from configuration
                 //console.log(configuration[property];)
                 //adding the specific charset
@@ -136,7 +136,7 @@
         finalCharacters = finalCharacters.split(' ');
 
         //Generating password
-        for(var i=0; i < configuration.character; i++){
+        for (var i = 0; i < configuration.character; i++) {
             //random math function
             password += finalCharacters[Math.floor(Math.random() * finalCharacters.length)];
         }
@@ -146,16 +146,17 @@
     }
 
     //To copy generated password to the clipboard
-    function copyPassword(){
+    function copyPassword() {
         //Select the text in the password field
         app.elements.namedItem('input-password').select();
         //Let's copy the text
         document.execCommand("copy");
         document.getElementById('alert-copied').classList.add('active');
 
-        setTimeout (function () {
+        setTimeout(function () {
             document.getElementById('alert-copied').classList.remove('active');
-        },2000)
+        }, 2000)
     }
     //Generating a password with default settings
-}())
+    generatePassword();
+})

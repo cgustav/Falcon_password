@@ -9,10 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <script src="js/app.js"></script>
-    <!--TODO:
-    buscar y crear logo 
-    -->
 </head>
 
 <body>
@@ -21,7 +17,9 @@
         <!--contenedor para el logotipo del generador-->
         <div class="logo">
             <div class="col">
-                <a href="/index.html"><img src="/img/psswrding.png" alt="Password Generator"></a>
+                <a href="/index.html">
+                    <img src="/img/psswrding.png" alt="Password Generator">
+                </a>
             </div>
             <div class="col">
                 <img src="/img/twelve.png" alt="Password Generator">
@@ -79,35 +77,38 @@
                     <label for="capital-letter">Include Capital Letters?</label>
                 </div>
                 <div class="col">
-                        <button class="btn btn-capital-letter">
-                            <i class="fas fa-check"></i>
-                        </button>             
+                    <button class="btn btn-capital-letter">
+                        <i class="fas fa-check"></i>
+                    </button>
                 </div>
             </div>
 
             <div class="row generate">
                 <div class="col">
-                    <button class="btn btn-generate" id="btn-generate">Generate <i class="fas fa-lock"></i></button>
+                    <button class="btn btn-generate" id="btn-generate">Generate
+                        <i class="fas fa-lock"></i>
+                    </button>
                 </div>
                 <div class="col">
                     <input type="text" class="input-password" id="input-password" readonly value="F_$4e()ER4">
                 </div>
             </div>
-            
+
             <div class="row alert">
                 <div class="col">
                     <div class="alert-copied" id="alert-copied">
-                        <p><i class="fas fa-copy"></i>Copied Text!</p>
+                        <p>
+                            <i class="fas fa-copy"></i>Copied Text!</p>
                     </div>
                 </div>
             </div>
-             
+
         </form>
         <div class="footer">
             <p>Eduardo Munoz All Rights Reserved ;)</p>
         </div>
     </div>
-
+    <script src="js/app.js"></script>
 </body>
 
 </html>
